@@ -248,26 +248,7 @@ h1 em, h2 em, .quote-section em { color: var(--green); font-style: italic; }
   letter-spacing: .12em;
 }
 .image-label span { width: 6px; height: 6px; background: var(--green); }
-.duration-badge {
-  position: absolute;
-  right: 24px;
-  bottom: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 90px;
-  height: 90px;
-  border: 1px solid rgb(166 109 76 / 50%);
-  border-radius: 50%;
-  background: var(--bg);
-  color: var(--brown);
-  font-size: 9px;
-  font-weight: 600;
-  line-height: 1.6;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: .14em;
-}
+
 .image-caption {
   margin: 12px 0 0;
   color: #8a8073;
@@ -607,7 +588,6 @@ h1 em, h2 em, .quote-section em { color: var(--green); font-style: italic; }
   .logo-wrap { width: 76px; height: 76px; }
   .hero-copy h1 { font-size: clamp(3rem, 15vw, 4.5rem); }
   .hero-text { font-size: 15px; }
-  .duration-badge { display: none; }
   .section-heading, .process-heading, .quote-inner, .footer-inner {
     align-items: flex-start;
     flex-direction: column;
