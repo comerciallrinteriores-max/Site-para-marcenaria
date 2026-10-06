@@ -17,6 +17,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 24px; }
 body {
   margin: 0;
   font-family: 'DM Sans', sans-serif;
@@ -249,8 +250,8 @@ h1 em, h2 em, .quote-section em { color: var(--green); font-style: italic; }
 .image-label span { width: 6px; height: 6px; background: var(--green); }
 .duration-badge {
   position: absolute;
-  left: -16px;
-  bottom: -28px;
+  right: 24px;
+  bottom: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
