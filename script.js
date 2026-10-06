@@ -55,4 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
       history.pushState(null, '', id);
     });
   });
+
+  document.querySelectorAll('.platform-placeholder').forEach(card => {
+    card.addEventListener('click', event => event.preventDefault());
+  });
 });

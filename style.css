@@ -606,23 +606,171 @@ h1 em, h2 em, .quote-section em { color: var(--green); font-style: italic; }
   .footer-inner { align-items: flex-start; }
 }
 
-
 /* Plataformas e redes */
-.platforms-section { padding: 110px 0; border-top: 1px solid rgb(48 40 32 / 12%); }
-.platforms-heading { display:grid; grid-template-columns:1fr .65fr; gap:80px; align-items:end; margin-bottom:52px; }
-.platforms-heading h2 { margin:16px 0 0; font-size:clamp(44px,5.5vw,72px); line-height:.98; font-weight:500; letter-spacing:-.035em; }
-.platforms-heading h2 em { color:var(--green); }
-.platforms-heading > p { max-width:420px; margin:0; color:var(--muted); font-size:14px; line-height:2; }
-.platforms-grid { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgb(48 40 32 / 15%); border-left:1px solid rgb(48 40 32 / 15%); }
-.platform-card { min-height:185px; padding:28px; border-right:1px solid rgb(48 40 32 / 15%); border-bottom:1px solid rgb(48 40 32 / 15%); background:transparent; transition:background .3s ease, transform .3s ease; }
-.platform-card:hover { background:var(--cream); transform:translateY(-2px); }
-.platform-top { display:flex; align-items:flex-start; justify-content:space-between; gap:20px; }
-.platform-top h3 { margin:0; font-size:28px; font-weight:500; }
-.platform-top > span { color:var(--brown); font-size:20px; }
-.platform-card p { max-width:310px; margin:22px 0; color:var(--muted); font-size:12px; line-height:1.8; }
-.platform-status { display:inline-block; padding:6px 10px; border:1px solid rgb(166 109 76 / 35%); border-radius:999px; color:var(--brown); font-size:9px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
-.platforms-note { display:flex; align-items:center; gap:10px; margin-top:22px; }
-.platforms-note > span { width:6px; height:6px; border-radius:50%; background:var(--brown); }
-.platforms-note p { margin:0; color:var(--muted); font-size:11px; }
-@media (max-width:900px){ .platforms-heading{grid-template-columns:1fr;gap:24px}.platforms-grid{grid-template-columns:repeat(2,1fr)} }
-@media (max-width:640px){ .platforms-section{padding:75px 0}.platforms-grid{grid-template-columns:1fr}.platform-card{min-height:160px} }
+.platforms-section {
+  padding: 104px 0 92px;
+  border-top: 1px solid rgb(48 40 32 / 12%);
+  background: var(--bg);
+}
+
+.platforms-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, .7fr);
+  gap: 70px;
+  align-items: end;
+  margin-bottom: 46px;
+}
+
+.platforms-heading h2 {
+  margin: 16px 0 0;
+  font-size: clamp(44px, 5.2vw, 70px);
+  line-height: .98;
+  font-weight: 500;
+  letter-spacing: -.035em;
+}
+
+.platforms-heading h2 em {
+  color: var(--green);
+}
+
+.platforms-heading > p {
+  max-width: 430px;
+  margin: 0 0 2px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgb(48 40 32 / 15%);
+  border-left: 1px solid rgb(48 40 32 / 15%);
+}
+
+.platform-card {
+  min-height: 205px;
+  padding: 28px 28px 25px;
+  border-right: 1px solid rgb(48 40 32 / 15%);
+  border-bottom: 1px solid rgb(48 40 32 / 15%);
+  background: transparent;
+  transition: background .3s ease, transform .3s ease;
+}
+
+.platform-card:hover {
+  background: var(--cream);
+  transform: translateY(-2px);
+}
+
+.platform-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 52px;
+}
+
+.platform-logo {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  place-items: center;
+  border: 1px solid rgb(48 40 32 / 16%);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--green);
+  font-family: var(--app-font-sans);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.ml-logo { font-size: 13px; letter-spacing: -.04em; }
+.amazon-logo { font-family: Arial, sans-serif; font-size: 25px; font-weight: 700; }
+.shopee-logo { font-size: 19px; }
+.tiktok-logo { font-size: 23px; }
+.facebook-logo { font-family: Arial, sans-serif; font-size: 25px; font-weight: 800; }
+.instagram-logo { font-size: 25px; }
+
+.platform-brand h3 {
+  margin: 0;
+  font-size: 25px;
+  line-height: 1.05;
+  font-weight: 500;
+}
+
+.platform-type {
+  display: block;
+  margin-top: 5px;
+  color: #8a8073;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.platform-card p {
+  max-width: 315px;
+  margin: 20px 0 18px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.platform-status {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid rgb(166 109 76 / 35%);
+  border-radius: 999px;
+  color: var(--brown);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.platforms-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.platforms-note > span {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border-radius: 50%;
+  background: var(--brown);
+}
+
+.platforms-note p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+@media (max-width: 900px) {
+  .platforms-heading {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .platforms-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .platforms-section {
+    padding: 75px 0;
+  }
+
+  .platforms-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .platform-card {
+    min-height: 175px;
+  }
+}
