@@ -774,3 +774,19 @@ h1 em, h2 em, .quote-section em { color: var(--green); font-style: italic; }
     min-height: 175px;
   }
 }
+
+
+/* Logos oficiais/identificadores visuais das plataformas */
+.platform-logo-svg {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  place-items: center;
+}
+
+.platform-logo-svg svg {
+  display: block;
+  width: 46px;
+  height: 46px;
+}
