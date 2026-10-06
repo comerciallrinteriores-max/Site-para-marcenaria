@@ -2,6 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.menu-toggle');
   const menu = document.querySelector('#mobile-menu');
 
+  /* =========================================
+     MENU MOBILE
+  ========================================= */
+
   const closeMenu = () => {
     if (!menu || !toggle) return;
 
@@ -37,34 +41,124 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape') closeMenu();
+      if (event.key === 'Escape') {
+        closeMenu();
+      }
     });
   }
 
-  // Rolagem suave para links que apontam para seções da própria página.
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', event => {
-      const targetId = link.getAttribute('href');
-      const target = document.querySelector(targetId);
 
-      if (!target) return;
+  /* =========================================
+     ROLAGEM SUAVE ENTRE SEÇÕES
+  ========================================= */
 
-      event.preventDefault();
+  const smoothScrollTo = (target) => {
+    const header = document.querySelector('.site-header');
 
-      const header = document.querySelector('.site-header');
-      const headerOffset = header ? header.offsetHeight + 12 : 12;
-      const targetTop =
-        target.getBoundingClientRect().top +
-        window.scrollY -
-        headerOffset;
+    const headerHeight = header
+      ? header.getBoundingClientRect().height
+      : 0;
 
-      window.scrollTo({
-        top: Math.max(0, targetTop),
-        behavior: 'smooth'
+    const offset = headerHeight + 20;
+
+    const start = window.scrollY;
+
+    const targetPosition =
+      target.getBoundingClientRect().top +
+      window.scrollY -
+      offset;
+
+    const distance = targetPosition - start;
+
+    /*
+      Duração da animação.
+
+      Quanto maior o número,
+      mais suave/lenta será a rolagem.
+    */
+    const duration = 1100;
+
+    let startTime = null;
+
+    const easeInOutCubic = (t) => {
+      return t < 0.5
+        ? 4 * t * t * t
+        : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    };
+
+    const animation = (currentTime) => {
+      if (!startTime) {
+        startTime = currentTime;
+      }
+
+      const elapsed = currentTime - startTime;
+
+      const progress = Math.min(
+        elapsed / duration,
+        1
+      );
+
+      const easedProgress =
+        easeInOutCubic(progress);
+
+      window.scrollTo(
+        0,
+        start + distance * easedProgress
+      );
+
+      if (progress < 1) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    requestAnimationFrame(animation);
+  };
+
+
+  /* =========================================
+     LINKS INTERNOS
+  ========================================= */
+
+  document
+    .querySelectorAll('a[href^="#"]')
+    .forEach(link => {
+
+      link.addEventListener('click', event => {
+
+        const targetId =
+          link.getAttribute('href');
+
+        if (
+          !targetId ||
+          targetId === '#'
+        ) {
+          return;
+        }
+
+        const target =
+          document.querySelector(targetId);
+
+        if (!target) {
+          return;
+        }
+
+        event.preventDefault();
+
+        closeMenu();
+
+        smoothScrollTo(target);
+
+        /*
+          Atualiza o endereço da página
+          sem fazer o navegador pular
+          diretamente para a seção.
+        */
+        history.pushState(
+          null,
+          '',
+          targetId
+        );
       });
 
-      // Atualiza a URL sem provocar um salto.
-      history.pushState(null, '', targetId);
     });
-  });
 });
