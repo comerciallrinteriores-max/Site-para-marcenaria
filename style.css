@@ -16,13 +16,12 @@
 }
 
 * { box-sizing: border-box; }
-html {
-  scroll-behavior: auto;
-}
+html { scroll-behavior: auto; }
 
 section[id] {
   scroll-margin-top: 100px;
 }
+section[id] { scroll-margin-top: 24px; }
 body {
   margin: 0;
   font-family: 'DM Sans', sans-serif;
@@ -253,7 +252,6 @@ h1 em, h2 em, .quote-section em { color: var(--green); font-style: italic; }
   letter-spacing: .12em;
 }
 .image-label span { width: 6px; height: 6px; background: var(--green); }
-
 .image-caption {
   margin: 12px 0 0;
   color: #8a8073;
@@ -593,21 +591,4 @@ h1 em, h2 em, .quote-section em { color: var(--green); font-style: italic; }
   .logo-wrap { width: 76px; height: 76px; }
   .hero-copy h1 { font-size: clamp(3rem, 15vw, 4.5rem); }
   .hero-text { font-size: 15px; }
-  .section-heading, .process-heading, .quote-inner, .footer-inner {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-  .section-heading h2, .process-heading h2 { font-size: 40px; }
-  .section-heading { margin-bottom: 32px; }
-  .atelier-copy h2, .budget-card h2 { font-size: 43px; }
-  .features { grid-template-columns: 1fr; }
-  .process-grid { grid-template-columns: 1fr; }
-  .process-step, .process-step + .process-step {
-    padding: 24px 0;
-    border-left: 0;
-  }
-  .process-step + .process-step { border-top: 1px solid rgb(245 241 232 / 25%); }
-  .quote-inner p { font-size: 25px; }
-  .budget-card { padding: 28px; }
-  .footer-inner { align-items: flex-start; }
-}
+  

@@ -70,16 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const distance = targetPosition - start;
 
-    /*
-      Duração da animação.
-
-      Quanto maior o número,
-      mais suave/lenta será a rolagem.
-    */
+    // Duração da animação em milissegundos.
     const duration = 1100;
 
     let startTime = null;
 
+    // Curva suave: acelera no meio e desacelera ao chegar.
     const easeInOutCubic = (t) => {
       return t < 0.5
         ? 4 * t * t * t
@@ -92,14 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const elapsed = currentTime - startTime;
-
-      const progress = Math.min(
-        elapsed / duration,
-        1
-      );
-
-      const easedProgress =
-        easeInOutCubic(progress);
+      const progress = Math.min(elapsed / duration, 1);
+      const easedProgress = easeInOutCubic(progress);
 
       window.scrollTo(
         0,
@@ -116,27 +106,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* =========================================
-     LINKS INTERNOS
+     LINKS INTERNOS DA PÁGINA
   ========================================= */
 
   document
     .querySelectorAll('a[href^="#"]')
     .forEach(link => {
-
       link.addEventListener('click', event => {
+        const targetId = link.getAttribute('href');
 
-        const targetId =
-          link.getAttribute('href');
-
-        if (
-          !targetId ||
-          targetId === '#'
-        ) {
+        if (!targetId || targetId === '#') {
           return;
         }
 
-        const target =
-          document.querySelector(targetId);
+        const target = document.querySelector(targetId);
 
         if (!target) {
           return;
@@ -145,20 +128,10 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
 
         closeMenu();
-
         smoothScrollTo(target);
 
-        /*
-          Atualiza o endereço da página
-          sem fazer o navegador pular
-          diretamente para a seção.
-        */
-        history.pushState(
-          null,
-          '',
-          targetId
-        );
+        // Atualiza o endereço sem fazer o navegador saltar.
+        history.pushState(null, '', targetId);
       });
-
     });
 });
