@@ -80,8 +80,8 @@ button { font: inherit; }
 }
 .brand { display: flex; align-items: center; gap: 12px; }
 .logo-wrap {
-  width: 84px;
-  height: 84px;
+  width: 64px;
+  height: 64px;
   flex: 0 0 auto;
   display: flex;
   align-items: center;
@@ -589,7 +589,7 @@ h1 em, h2 em, .quote-section em { color: var(--green); font-style: italic; }
 @media (max-width: 640px) {
   .container { width: min(100% - 40px, var(--max)); }
   .header-inner { height: 88px; }
-  .logo-wrap { width: 76px; height: 76px; }
+  .logo-wrap { width: 58px; height: 58px; }
   .hero-copy h1 { font-size: clamp(3rem, 15vw, 4.5rem); }
   .hero-text { font-size: 15px; }
   .section-heading, .process-heading, .quote-inner, .footer-inner {
